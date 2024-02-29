@@ -55,6 +55,6 @@ app.post('/create-pdf', upload.single('file'), async (req, res) => {
     res.sendFile(`${__dirname}/${outputPath}`);
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT||5000, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
