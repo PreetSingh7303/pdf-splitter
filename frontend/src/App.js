@@ -23,7 +23,7 @@ console.log(selectedPages,'selectedpages');
     formData.append('file', file);
 
     try {
-      const res = await axios.post('http://localhost:5000/upload', formData, {
+      const res = await axios.post('https://pdf-splitter.onrender.com/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -48,7 +48,7 @@ console.log(selectedPages,'selectedpages');
   
     try {
       console.log('FormData:', formData); // Log FormData object before making the request
-      const res = await axios.post('http://localhost:5000/create-pdf', formData, {
+      const res = await axios.post('https://pdf-splitter.onrender.com/create-pdf', formData, {
         responseType: 'blob',
       });
   
