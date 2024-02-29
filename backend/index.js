@@ -33,7 +33,9 @@ const upload = multer({ storage: storage });
 app.post('/upload', upload.single('file'), (req, res) => {
     res.json({ filename: req.file.originalname });
 });
-
+app.get('/', (req, res) => {
+    res.send('Hello, world!');
+  });
 app.post('/create-pdf', upload.single('file'), async (req, res) => {
     const { file, pages } = req.body;
     const selectedPages = JSON.parse(pages);
