@@ -9,7 +9,12 @@ const app = express();
 const port = 5000;
 
 app.use(cors());
-
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://pdf-splitter.netlify.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+  });
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'uploads/')
